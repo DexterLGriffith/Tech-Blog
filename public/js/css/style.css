@@ -1,0 +1,52 @@
+*{ 
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+.navContainer{
+    display:  flex;
+    
+}
+.navbar {
+    display:flex;
+    width: 100vw;
+    border: 0px;
+    margin: 0px;
+}
+.navbar-nav {
+    display: flex;
+    color: darkseagreen;
+    font-size: x-large;
+    font-weight: 400;
+    width: 100vw;
+}
+.nav-link {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.titleContainer {
+    background-color: maroon;
+    color: rgb(174, 185, 174);
+}
+.loginContainer {
+    padding: 25px;
+}
+.innerLoginContainer{
+    border: solid 5px;
+    border-color: maroon;
+}
+.loginRow {
+    /* display: flex; */
+    justify-content: center;
+}
+.mainBlogContainer {
+    display:flex;
+    justify-content: center;
+}
+/* .loginFormBtnLogin {
+    display: flex;
+    width: 100%; */
+/* } */
+#Login-btn {
+    width: 100%;
+}
