@@ -93,3 +93,5 @@ router.get("/", (req, res) => {
       layout: "main"
     });
   });
+
+  module.exports = router;
