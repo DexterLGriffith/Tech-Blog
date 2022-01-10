@@ -1,0 +1,30 @@
+* {
+    background-color: rgb(174, 185, 174);
+}
+.loginTrouble {
+    display: flex;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 200px !important;
+
+}
+.loginRow2 {
+    display: flex;
+    justify-content: center;
+}
+.loginFormPassword {
+    display:flex;
+    justify-content: left;
+}
+.projectTitle {
+    display: flex;
+    justify-content: center;
+}
+.loginTrouble {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}

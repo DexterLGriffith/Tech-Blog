@@ -50,3 +50,26 @@
 #Login-btn {
     width: 100%;
 }
+.profileContainer {
+    border: solid 5px maroon;
+    margin: 35px;
+    
+}
+.profileNewPost {
+    background-color: maroon;
+}
+.titleNewPost {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.contentNewPost {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.createPost {
+    padding: 15px;
+}
+.postButton {
+    display: flex;
+    justify-content: center;
+}
