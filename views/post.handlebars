@@ -1,0 +1,64 @@
+    <div class="navContainer" style="background-color: maroon;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style= "padding: 0px; width: 100vw; ">
+        <div class="container-fluid" style="background-color: maroon;">
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="background-color: maroon;">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#" style="color: rgb(174, 185, 174);">Home</a>
+              <a class="nav-link" href="#" style="color: rgb(174, 185, 174);">Dashboard</a>
+              <a class="nav-link" href="#" style="color: rgb(174, 185, 174);">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class= "titleContainer">
+      <h1>The Tech Blog </h1>
+    </div>
+    <div class="dashboardContainer">
+        <div class="dashboardContainerBorder">
+        </div>
+        <article class="postCard">
+          <div class="card-header flex-row justify-space-between">
+            <h2>{{post.title}}</h2>
+            <div>
+              Posted by {{post.User.username}} on {{format_date post.createdAt}}
+            </div>
+          </div>
+          <div class="card-body">
+            {{post.body}}
+          </div>
+        </article>
+      
+        {{#if post.Comments}}
+          <section class="postCard">
+            <div class="card-header">
+              <h3>Comments</h3>
+            </div>
+      
+            <div class="card-body">
+              {{#each post.Comments}}
+                <div>
+                  <p>
+                    {{body}}
+                  </p>
+                  <p>
+                    &mdash; {{User.username}}, {{format_date createdAt}}
+                  </p>
+                </div>
+              {{/each}}
+            </div>
+          </section>
+        {{/if}}
+        <div class="dashboardNewPost">
+            <label for="formContentInput" style=" font-weight: 500;">Comment</label>
+            <textarea class="form-control" id="formContentInput" rows="3"></textarea>
+        </div>
+        <div class="createPostButton">
+            <div class="createPost">
+                <button type="submit" class="btn btn-default btn-outline-darker" style="background-color: grey; color: white" id="Login-btn"> Submit </button>
+            </div>
+            </div>
+    </div>
+
+    
+<script src="/js/comment.js"></script>

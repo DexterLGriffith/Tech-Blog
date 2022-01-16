@@ -12,18 +12,21 @@
       </nav>
     </div>
     <div class= "titleContainer">
-      <h1>The Tech Blog </h1>
+      <h1> ${ user } Dashboard </h1>
     </div>
-    <div class="dashbooardContainer">
-        <div class="dashboardContainerBorder">
-        </div>
-        <div class="dashboardNewPost">
-            <label for="formContentInput" style=" font-weight: 500;">Comment</label>
-            <textarea class="form-control" id="formContentInput" rows="3"></textarea>
-        </div>
-        <div class="createPostButton">
-            <div class="createPost">
-                <button type="submit" class="btn btn-default btn-outline-darker" style="background-color: grey; color: white" id="Login-btn"> Submit </button>
-            </div>
-            </div>
+<article class="postCard">
+  <div class="card-header flex-row justify-space-between">
+    <h2>{{post.title}}</h2>
+    <div>
+      Posted by {{post.User.username}} on {{format_date post.createdAt}}
     </div>
+  </div>
+  <div class="card-body">
+    {{post.body}}
+  </div>
+</article>
+    <div class="postButton">
+        <div class="postButton">
+            <button type="submit" class="btn btn-default btn-outline-darker" style="background-color: maroon; color: white; font-weight: bolder;" id="post-btn"> + New Post </button>
+        </div>
+        </div>

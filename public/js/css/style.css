@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+
 }
 .navContainer{
     display:  flex;
@@ -72,4 +73,21 @@
 .postButton {
     display: flex;
     justify-content: center;
+}
+.dashboardContainer {
+    border: solid 5px maroon;
+    margin: 35px;
+    
+}
+.dashboardContainerBorder {
+    background-color: maroon;
+    height: 35px;
+}
+.dashboardNewPost{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.postCard {
+    padding-left: 15px;
+    padding-right: 15px;
 }

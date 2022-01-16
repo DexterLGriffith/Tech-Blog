@@ -39,5 +39,27 @@ router.post("/", (req, res) => {
         res.status(500).json(err);
       });
   });
-
+  router.post('/signup', async (req, res) => {
+    try {
+        const userSignUpData = await User.create(req.body)
+        req.session.save(() => {
+            req.session.userid = userSignUpData.id
+            req.session.loggedIn = true
+            res.status(200).json(userSignUpData)
+        })
+    }
+    catch(err) {
+        res.status(400).json(err)
+    }
+    res.render('/login'); 
+});
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn === true) {
+      req.session.destroy();
+  }
+  else {
+      res.status(404).end();
+  }
+  res.status(200).render('/');
+});
 module.exports = router;
