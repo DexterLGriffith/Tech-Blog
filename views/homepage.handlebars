@@ -12,27 +12,31 @@
       </nav>
     </div>
     <div class= "titleContainer">
-      <h1>The Tech Blog</h1>
+      <h1>The Tech Blog </h1>
     </div>
-    <div class= "loginContainer">
-      <div class ="innerLoginContainer">
-        <h2 style="background-color: maroon;">Dashboard</h2>
-        <div class="mainBlogContainer">
-            <div class="row" style="display:flex; align-items: center;">
-                <div class="col-md-8" style="width: 70%; padding:5px;">
-                  <div class="card large cyan darken-1">
-                    <div class="card-content white-text">
-                      <span class="card-title" style="width:auto;">
-                        <input type="text" class="form-control" id="email-input" style="background-color: white" placeholder="Article Title">
-                      </span>
-                      <form action="/action_page.php">
-                        <label for="noteBody"></label>
-                        <textarea id="noteBody" name="noteBody" rows="4" cols="50" style="background-color: white; height: 400px; width: 100%;" placeholder="Whats on your mind? "></textarea>
-                        </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="dashboardContainer">
+        <div class="dashboardContainerBorder">
         </div>
-      </div>
+        <article class="postCard">
+          <div class="card-header flex-row justify-space-between">
+            <h2>{{post.title}}</h2>
+            <div>
+              Posted by {{post.User.username}} on {{format_date post.createdAt}}
+            </div>
+          </div>
+          <div class="card-body">
+            {{post.body}}
+          </div>
+        </article>
+        <article class="postCard">
+          <div class="card-header flex-row justify-space-between">
+            <h2>{{post.title}}</h2>
+            <div>
+              Posted by {{post.User.username}} on {{format_date post.createdAt}}
+            </div>
+          </div>
+          <div class="card-body">
+            {{post.body}}
+          </div>
+        </article>
     </div>
