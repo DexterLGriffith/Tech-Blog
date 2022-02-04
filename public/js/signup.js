@@ -1,44 +1,38 @@
-const loginForm = document.getElementById("loginFormBtnLogin");
-const loginButton = document.getElementById("signup-btn");
-const emailInputEl = document.getElementById("email-input");
-const passwordInputEl = document.getElementById("password-input");
-const nameInputEl = document.getElementById("name-input");
 
-async function postData(data) {
-    // Default options are marked with *
-    const response = await fetch('/api/users/signup', {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+
+const signupFormHandler = async function(event)
+{
+    event.preventDefault();
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+    fetch("/api/user", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
+        body: JSON.stringify({
+
+            username: username.value,
+            password: password.value
+        })
+       
+
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.message === "success")
+        {
+            window.location.href = "/dashboard";
+        }
+        else
+        {
+            alert("Invalid username or password");
+        }
+    })
+    .catch(err => {
+        console.log(err);
     });
-    return await response.json(); // parses JSON response into native JavaScript objects
 }
-loginButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const email = emailInputEl.value;
-    const password = passwordInputEl.value;
-    const name = nameInputEl.value;
 
-    if (email && password && name) {
-    let newUserLogin = {
-        email,
-        password,
-        name 
-    }
-        
-        postData(newUserLogin)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-            });
-            emailInputEl.value = "",
-            passwordInputEl.value = "",
-            nameInputEl.value = ""
 
-    }
-    else {
-        alert("make sure you enter email and login")
-    };
-})
+document.querySelector(".signupContainer").addEventListener("submit", loginFormHandler);

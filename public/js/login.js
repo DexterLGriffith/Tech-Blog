@@ -1,39 +1,36 @@
-const loginForm = document.getElementById("loginFormBtnLogin");
-const loginButton = document.getElementById("Login-btn");
-const emailInputEl = document.getElementById("email-input");
-const passwordInputEl = document.getElementById("password-input");
+//front end login
+//get login form
 
-async function postData(data) {
-    // Default options are marked with *
-    const response = await fetch('/api/users/login', {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return await response.json(); // parses JSON response into native JavaScript objects
-}
-loginButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const email = emailInputEl.value;
-    const password = passwordInputEl.value;
 
-    if (email && password) {
-    let userLogin = {
-        email,
-        password 
-    }
+
+const loginFormHandler = async function(event)
+{
+    event.preventDefault();
+    const username = document.querySelector("#username").value;
+    const password = document.querySelector("#password").value;
+    fetch("/api/user/login", {
+        method: "POST",
         
-        postData(userLogin)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-            });
-            emailInputEl.value = "",
-            passwordInputEl.value = ""
-    }
-    else {
-        alert("make sure you enter email and login")
-    };
-})
+        body: JSON.stringify({
+
+            username: username.value,
+            password: password.value
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
+    .then(response => response.json())
+    .then(() => {
+      
+          document.location.replace("/dashboard");
+
+       
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
+
+
+document.querySelector(".loginContainer").addEventListener("submit", loginFormHandler);
