@@ -1,32 +1,45 @@
 const router = require('express').Router();
-const {Post} = require('../models/');
+const { Post } = require('../../models/');
+//import auth
+const withAuth = require('../../utils/auth');
 
-
-router.get('/', (req, res) => {
-    Post.findAll({
-        include: [
-        {
-            model: User,
-            attributes: ["username"]
-        }
-        ]
+//Add new post
+router.post("/", withAuth, (req, res) => {
+    Post.create({
+      title: req.body.title,
+      body: req.body.body,
+      userId: req.session.userId
     })
-        .then(dbPostData => {
-        // serialize data
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-    
-        // render homepage
-        res.render('homepage', {
-            layout: 'main',
-            posts
-        });
-        })
-        .catch(err => {
+      .then(dbPostData => {
+        res.json(dbPostData);
+          
+      })
+      .catch(err => {
         console.log(err);
         res.status(500).json(err);
-        });
-    }
-);
+      });
+  });
 
+  //update post 
+    router.put("/:id", withAuth, (req, res) => {
+        Post.update(
+            {
+                title: req.body.title,
+                body: req.body.body
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
 
-module.exports = router;
+        ).then(dbPostData=>{
+            res.json(dbPostData);
+        })
+        .catch(err=>{
+            console.log(err)
+            res.status(500).json(err);
+        }   )
+    })
+    
+  module.exports = router;
