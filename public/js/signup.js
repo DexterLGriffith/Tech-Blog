@@ -1,38 +1,26 @@
-
-
-const signupFormHandler = async function(event)
-{
+const signupFormHandler = async function(event) {
     event.preventDefault();
-    const username = document.querySelector("#username").value;
-    const password = document.querySelector("#password").value;
-    fetch("/api/user", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-
-            username: username.value,
-            password: password.value
-        })
-       
-
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.message === "success")
-        {
-            window.location.href = "/dashboard";
-        }
-        else
-        {
-            alert("Invalid username or password");
-        }
-    })
-    .catch(err => {
-        console.log(err);
+  
+    const usernameEl = document.querySelector('#username-input-signup');
+    const passwordEl = document.querySelector('#password-input-signup');
+  
+    const response = await fetch('/api/user', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: usernameEl.value,
+        password: passwordEl.value,
+      }),
+      headers: { 'Content-Type': 'application/json' },
     });
-}
-
-
-document.querySelector(".signupContainer").addEventListener("submit", loginFormHandler);
+  
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Unable to create account');
+    }
+  };
+  
+  document
+    .querySelector('#signup-form')
+    .addEventListener('submit', signupFormHandler);
+  
