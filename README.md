@@ -19,7 +19,7 @@ Tech-blog is a CMS0-style blog site, built completely from scratch that follows 
 7. Altered views pages to get pages to redirect and change to the right view when clicking on the navbar.  
 8. Project successfully logging in, signing up and logging out, edited routes page to display profile page upon login redirect.
 9. Adjusted parameters to increase SEO for smaller devices. 
-10. Made sure elements had good flow, and logical positioning within the portfolio. 
+10. Made sure elements had good flow, and logical positioning within the project. 
 
 ## Installation 
 
