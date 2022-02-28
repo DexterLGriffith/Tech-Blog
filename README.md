@@ -4,11 +4,22 @@ CMS-style blog site, built completely from scratch where user can publish their 
 
 ## Description 
 
-
+Tech-blog is a CMS0-style blog site, built completely from scratch that follows the MVC paradigm in its architectural structure. Tech-blog uses handlebars.js as the templating language, Sequelize as the ORM and the express-session npm package for authentication.  Tech-blog show cases all knowledge learned from previous assignments, and was built to allow the user to publish their blog posts, and comment on other developers' posts as well. 
 
 ## Tasks Completed
 
+1. Created basic file from Github with readme.md, and license. 
+2. Added some basic framework files, including alot of the boiler plate pages, such as the connection.js file.
+3. Added the folders, and basic files that would be needed for this project. 
+4. Created some of the views files (handlebar files) as well as corresponding CSS files. 
+5. Added files to api and other controller files in an attempt to get server up and running, and displaying the initial screen. 
+6. Once server up and running, deployed project to heroku in order to maintain the site as we work on it. 
 
+        heroku site : [https://tech-blog1111.herokuapp.com/]
+7. Altered views pages to get pages to redirect and change to the right view when clicking on the navbar.  
+8. Project successfully logging in, signing up and logging out, edited routes page to display profile page upon login redirect.
+9. Adjusted parameters to increase SEO for smaller devices. 
+10. Made sure elements had good flow, and logical positioning within the portfolio. 
 
 ## Installation 
 
