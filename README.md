@@ -1,6 +1,6 @@
 # Tech-Blog
 
-
+CMS-style blog site, built completely from scratch where user can publish their blog posts and comment on other developers' posts as well. 
 
 ## Description 
 
@@ -12,7 +12,9 @@
 
 ## Installation 
 
-
+1. Download all files from the repository. 
+2. Open terminal within the project, and NPM i to install all the dependencies.
+3. After installation, within the terminal type "node server.js" to initialize the program, it will open the portfolio after initializing. 
 
 ## Links 
 
